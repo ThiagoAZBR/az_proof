@@ -1,3 +1,5 @@
+import 'package:az_proof/app/data/models/user_model.dart';
+import 'package:az_proof/app/routes/routes_arguments.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_phosphor_icons/flutter_phosphor_icons.dart';
 import 'package:flutter_svg/svg.dart';
@@ -214,14 +216,19 @@ class _LoginViewState extends State<LoginView> {
                                           .validate()) {
                                     controller.loading = true;
 
-                                    bool response =
+                                    UserModel? response =
                                         await controller.signInController(
                                       controller.emailController.text,
                                       controller.passwordController.text,
                                     );
 
-                                    if (response) {
-                                      Get.offAndToNamed(Routes.HOME);
+                                    if (response != null) {
+                                      Get.offAndToNamed(
+                                        Routes.HOME,
+                                        arguments: HomePageArguments(
+                                          userModel: response,
+                                        ),
+                                      );
                                     } else {
                                       Get.showSnackbar(
                                         GetSnackBar(

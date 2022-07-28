@@ -1,11 +1,19 @@
+import 'package:az_proof/app/data/models/user_model.dart';
+import 'package:az_proof/app/data/preferences/user_preferences.dart';
 import 'package:az_proof/app/data/providers/session_provider.dart';
+import 'package:az_proof/app/domain/usecases/sign_in_use_case.dart';
+import 'package:az_proof/app/shared/errors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class LoginController extends GetxController {
-  SessionProvider sessionProvider;
+  SignInUseCase signInUseCase;
 
-  LoginController(this.sessionProvider);
+  LoginController(this.signInUseCase);
+
+  final _errorMessage = ''.obs;
+  String get error => _errorMessage.value;
+  set error(String error) => _errorMessage.value = error;
 
   final _loading = false.obs;
   bool get loading => _loading.value;
@@ -66,9 +74,23 @@ class LoginController extends GetxController {
     }
   }
 
-  Future<bool> signInController(String email, String password) async {
-    return await sessionProvider.signInProvider(email, password);
-  }
+  Future<UserModel?> signInController(String email, String password) async {
+    final prefs = UserPreferences();
 
-  String get error => sessionProvider.error;
+    UserModel? _userModel;
+
+    final result = await signInUseCase(email: email, password: password);
+
+    result.fold(
+      (failure) => error =
+          failure is NotFoundException ? failure.message : failure.toString(),
+      (success) async {
+        await prefs.deleteUser();
+        await prefs.setUser(success);
+        _userModel = success;
+      },
+    );
+
+    return _userModel;
+  }
 }
