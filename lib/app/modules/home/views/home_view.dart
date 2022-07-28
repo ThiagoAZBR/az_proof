@@ -1,5 +1,5 @@
 import 'package:az_proof/app/modules/home/views/widgets/requests_table/requests_table.dart';
-import 'package:az_proof/app/modules/home/views/widgets/status_summary.dart';
+import 'package:az_proof/app/modules/home/views/widgets/activity_summary.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:flutter_svg/svg.dart';
@@ -99,13 +99,14 @@ class HomeView extends GetView<HomeController> {
                               child: Container(
                                 height: MediaQuery.of(context).size.height,
                                 child: ListView(
+                                  physics: BouncingScrollPhysics(),
                                   scrollDirection: Axis.horizontal,
                                   children: <Widget>[
                                     Column(
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
                                       children: <Widget>[
-                                        StatusSummary(),
+                                        ActivitySummary(),
                                         RequestsTable(),
                                       ],
                                     )
