@@ -11,7 +11,7 @@ class LoginController extends GetxController {
 
   LoginController(this.signInUseCase);
 
-  final _errorMessage = ''.obs;
+  final _errorMessage = 'Ops, ocorreu um erro. Tente novamente'.obs;
   String get error => _errorMessage.value;
   set error(String error) => _errorMessage.value = error;
 
@@ -79,17 +79,19 @@ class LoginController extends GetxController {
 
     UserModel? _userModel;
 
-    final result = await signInUseCase(email: email, password: password);
+    final result = await signInUseCase(email: email.trim(), password: password);
 
     result.fold(
       (failure) => error =
           failure is NotFoundException ? failure.message : failure.toString(),
       (success) async {
-        await prefs.deleteUser();
-        await prefs.setUser(success);
         _userModel = success;
       },
     );
+    if (_userModel != null) {
+      await prefs.deleteUser();
+      await prefs.setUser(_userModel!);
+    }
 
     return _userModel;
   }
