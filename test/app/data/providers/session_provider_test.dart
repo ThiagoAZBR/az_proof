@@ -11,8 +11,6 @@ void main() {
     final result =
         await sessionProvider.signInProvider(Secrets.email, Secrets.password);
 
-    print(result.token);
-
     expect(result, isA<UserModel>());
   });
 }
