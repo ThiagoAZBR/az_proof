@@ -10,12 +10,12 @@ class HomeController extends GetxController {
   final userName = ''.obs;
   late final HomePageArguments arguments;
 
-  final Rx<HomeStates> _state = HomeIsLoading().obs;
+  final Rx<HomeStates> _state = HomeStates.loading().obs;
 
   HomeStates get state => _state.value;
 
   set state(HomeStates newState) {
-    _state.value = state;
+    _state.value = newState;
   }
 
   // UseCases
@@ -35,7 +35,7 @@ class HomeController extends GetxController {
         ),
       );
     }
-    getDashboardInfo(
+    await getDashboardInfo(
       GetDashboardInfoParams(
         token: arguments.userModel.token!,
       ),
@@ -56,12 +56,16 @@ class HomeController extends GetxController {
   }
 
   Future<void> getDashboardInfo(GetDashboardInfoParams params) async {
-    state = HomeIsLoading();
+    state = HomeStates.loading();
     final result = await _getDashboardInfoUseCase(params);
 
     result.fold(
-      (failure) => state = HomeError(),
-      (success) => state = HomeSuccess(dashboardModel: success),
+      (failure) {
+        state = HomeStates.error();
+      },
+      (dashboardInfo) {
+        state = HomeStates(dashboardInfo);
+      },
     );
   }
 }

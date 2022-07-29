@@ -1,3 +1,6 @@
+import 'package:az_proof/app/modules/home/controllers/home_states.dart';
+import 'package:az_proof/app/modules/home/views/home_shimmer.dart';
+import 'package:az_proof/app/modules/home/views/widgets/dashboard_body.dart';
 import 'package:az_proof/app/modules/home/views/widgets/requests_table/requests_table.dart';
 import 'package:az_proof/app/modules/home/views/widgets/activity_summary.dart';
 import 'package:flutter/material.dart';
@@ -97,20 +100,13 @@ class HomeView extends GetView<HomeController> {
                                 horizontal: 40,
                               ),
                               child: Container(
-                                height: MediaQuery.of(context).size.height,
-                                child: ListView(
-                                  physics: BouncingScrollPhysics(),
-                                  scrollDirection: Axis.horizontal,
-                                  children: <Widget>[
-                                    Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: <Widget>[
-                                        ActivitySummary(),
-                                        RequestsTable(),
-                                      ],
-                                    )
-                                  ],
+                                width: double.maxFinite,
+                                child: Obx(
+                                  () => Visibility(
+                                    visible: controller.state == HomeStates.loading(),
+                                    replacement: DashboardBody(),
+                                    child: HomeShimmer(),
+                                  ),
                                 ),
                               ),
                             ),

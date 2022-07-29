@@ -1,20 +1,11 @@
 import 'package:az_proof/app/data/models/dashboard_model.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-abstract class HomeStates {}
+part 'home_states.freezed.dart';
 
-class HomeNoError implements HomeStates {
-  const HomeNoError();
-}
-
-class HomeSuccess implements HomeStates {
-  final DashboardModel dashboardModel;
-  const HomeSuccess({required this.dashboardModel});
-}
-
-class HomeIsLoading implements HomeStates {
-  const HomeIsLoading();
-}
-
-class HomeError implements HomeStates {
-  const HomeError();
+@freezed
+class HomeStates with _$HomeStates {
+  const factory HomeStates(DashboardModel data) = Data;
+  const factory HomeStates.loading() = Loading;
+  const factory HomeStates.error([String? message]) = ErrorDetails;
 }

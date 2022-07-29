@@ -10,18 +10,25 @@ class RequestsTable extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         const Text('Pedidos'),
-        Row(
-          children: <Widget>[
-            for (var i = 0; i < 3; i++)
-              TableColumn(
-                title: 'ID da Loja',
-                dataList: ['11111', '22222', '33333'],
-                titleBackground: i % 2 == 0 ? AppColors.lightRed : AppColors.darkRed,
-                dataListBackground: i % 2 == 0 ? AppColors.white : AppColors.lightGrey,
-              ),
-          ],
+        SizedBox(
+          height: MediaQuery.of(context).size.height,
+          child: ListView(
+            scrollDirection: Axis.horizontal,
+            children: <Widget>[
+              for (var i = 0; i < 7; i++)
+                TableColumn(
+                  title: 'ID da Loja',
+                  dataList: ['11111', '22222', '33333'],
+                  titleBackground:
+                      i % 2 == 0 ? AppColors.lightRed : AppColors.darkRed,
+                  dataListBackground:
+                      i % 2 == 0 ? AppColors.white : AppColors.lightGrey,
+                ),
+            ],
+          ),
         )
       ],
     );

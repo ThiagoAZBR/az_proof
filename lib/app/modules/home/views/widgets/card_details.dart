@@ -18,13 +18,16 @@ class CardDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      child: Column(
-        children: <Widget>[
-          Icon(_icon),
-          Text(_title),
-          Text(_body),
-        ],
+    return ConstrainedBox(
+      constraints: BoxConstraints(maxHeight: 174,),
+      child: Card(
+        child: Column(
+          children: <Widget>[
+            Icon(_icon),
+            Text(_title),
+            Text(_body),
+          ],
+        ),
       ),
     );
   }

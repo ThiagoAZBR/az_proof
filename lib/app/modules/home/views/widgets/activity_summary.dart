@@ -8,19 +8,25 @@ class ActivitySummary extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        Row(
-          children: <Widget>[
-            for (var i = 0; i < 3; i++)
-              CardDetails(
-                icon: Icons.favorite,
-                title: 'Status',
-                body: 'R\$: 50.000,00',
-              ),
-          ],
-        )
-      ],
+    return SizedBox(
+      width: double.maxFinite,
+      child: Column(
+        children: <Widget>[
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+              for (var i = 0; i < 3; i++)
+                Expanded(
+                  child: CardDetails(
+                    icon: Icons.favorite,
+                    title: 'Status',
+                    body: 'R\$: 50.000,00',
+                  ),
+                ),
+            ],
+          )
+        ],
+      ),
     );
   }
 }
