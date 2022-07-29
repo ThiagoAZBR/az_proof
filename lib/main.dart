@@ -1,3 +1,4 @@
+import 'package:az_proof/app/app_bindings.dart';
 import 'package:az_proof/app/data/preferences/user_preferences.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -11,6 +12,7 @@ void main() async {
   runApp(
     GetMaterialApp(
       title: "AZ Proof",
+      initialBinding: AppBindings(),
       debugShowCheckedModeBanner: false,
       initialRoute: await authenticate(),
       getPages: AppPages.routes,

@@ -1,3 +1,4 @@
+import 'package:az_proof/app/data/models/user_model.dart';
 import 'package:az_proof/app/data/preferences/user_preferences.dart';
 import 'package:az_proof/app/routes/routes_arguments.dart';
 import 'package:get/get.dart';
@@ -11,6 +12,13 @@ class HomeController extends GetxController {
   void onInit() async {
     await getName();
     arguments = Get.arguments;
+    if (arguments == null) {
+      arguments = HomePageArguments(
+        userModel: UserModel(
+          token: await user.value.getToken(),
+        ),
+      );
+    }
     super.onInit();
   }
 

@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:az_proof/app/shared/app_urls.dart';
 import 'package:az_proof/app/shared/errors.dart';
 import 'package:dio/dio.dart';
 import '../models/user_model.dart';
@@ -14,11 +15,10 @@ class SessionProvider {
     headers: {'Content-Type': 'application/json'},
   );
 
-  final baseUrl = 'http://150.230.64.79:9393/proof';
 
   Future<UserModel> signInProvider(String email, String password) async {
     final response = await request.post(
-      '$baseUrl/session',
+      AppUrls.SESSION_ENDPOINT,
       data: jsonEncode(
         {
           "email": email,
