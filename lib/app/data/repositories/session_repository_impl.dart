@@ -20,6 +20,8 @@ class SessionRepositoryImpl implements SessionRepository {
       return Right(result);
     } on NotFoundException catch (e) {
       return Left(e);
+    } on DioError catch (e) {
+      return Left(e);
     }
   }
 }
