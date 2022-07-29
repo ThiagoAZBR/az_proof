@@ -1,5 +1,6 @@
 import 'package:az_proof/app/modules/home/views/widgets/activity_summary.dart';
 import 'package:az_proof/app/modules/home/views/widgets/requests_table/requests_table.dart';
+import 'package:az_proof/app/modules/home/views/widgets/requests_table/table_footer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -15,7 +16,9 @@ class DashboardBody extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           ActivitySummary(),
+          const SizedBox(height: 32),
           RequestsTable(),
+          TableFooter(),
         ],
       ),
     );

@@ -3,6 +3,7 @@ import 'package:az_proof/app/modules/home/views/home_shimmer.dart';
 import 'package:az_proof/app/modules/home/views/widgets/dashboard_body.dart';
 import 'package:az_proof/app/modules/home/views/widgets/requests_table/requests_table.dart';
 import 'package:az_proof/app/modules/home/views/widgets/activity_summary.dart';
+import 'package:az_proof/app/shared/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:flutter_svg/svg.dart';
@@ -103,7 +104,8 @@ class HomeView extends GetView<HomeController> {
                                 width: double.maxFinite,
                                 child: Obx(
                                   () => Visibility(
-                                    visible: controller.state == HomeStates.loading(),
+                                    visible: controller.state ==
+                                        HomeStates.loading(),
                                     replacement: DashboardBody(),
                                     child: HomeShimmer(),
                                   ),
@@ -112,7 +114,7 @@ class HomeView extends GetView<HomeController> {
                             ),
                             Container(
                               color: Color(0xffF5F5F5),
-                              height: 56,
+                              height: 60,
                               width: double.infinity,
                               padding: EdgeInsets.symmetric(vertical: 21),
                               child: Row(
@@ -178,7 +180,7 @@ class HomeView extends GetView<HomeController> {
                                       fontFamily: 'NunitoSans',
                                       fontWeight: FontWeight.w400,
                                       fontSize: 14,
-                                      color: Color(0xff59666F),
+                                      color: AppColors.darkGrey,
                                     ),
                                   ),
                                   Obx(
@@ -188,7 +190,7 @@ class HomeView extends GetView<HomeController> {
                                           .first,
                                       style: TextStyle(
                                         fontFamily: 'NunitoSans',
-                                        color: Color(0xff59666F),
+                                        color: AppColors.darkGrey,
                                         fontSize: 19,
                                         fontWeight: FontWeight.bold,
                                       ),
