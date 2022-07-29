@@ -7,7 +7,7 @@ import '../../secrets.dart';
 void main() {
   final SessionProvider sessionProvider = SessionProvider();
 
-  test('Session provider must return Right', () async {
+  test('Session provider must return UserModel', () async {
     final result =
         await sessionProvider.signInProvider(Secrets.email, Secrets.password);
 
