@@ -30,7 +30,7 @@ class History {
       result.addAll({'id': id});
     }
     if(sellerId != null){
-      result.addAll({'sellerId': sellerId});
+      result.addAll({'seller_id': sellerId});
     }
     if(name != null){
       result.addAll({'name': name});
@@ -51,7 +51,7 @@ class History {
       result.addAll({'discount': discount});
     }
     if(originalAmount != null){
-      result.addAll({'originalAmount': originalAmount});
+      result.addAll({'original_amount': originalAmount});
     }
   
     return result;
@@ -60,14 +60,14 @@ class History {
   factory History.fromMap(Map<String, dynamic> map) {
     return History(
       id: map['id'],
-      sellerId: map['sellerId'],
+      sellerId: map['seller_id'],
       name: map['name'],
       quantity: map['quantity']?.toInt(),
       sku: map['sku'],
       image: map['image'],
       amount: map['amount']?.toInt(),
       discount: map['discount']?.toInt(),
-      originalAmount: map['originalAmount']?.toInt(),
+      originalAmount: map['original_amount']?.toInt(),
     );
   }
 

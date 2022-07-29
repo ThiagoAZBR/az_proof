@@ -43,10 +43,10 @@ class Address {
       result.addAll({'state': state});
     }
     if(postalCode != null){
-      result.addAll({'postalCode': postalCode});
+      result.addAll({'postal_Code': postalCode});
     }
     if(countryCode != null){
-      result.addAll({'countryCode': countryCode});
+      result.addAll({'country_Code': countryCode});
     }
   
     return result;
@@ -60,8 +60,8 @@ class Address {
       neighborhood: map['neighborhood'],
       city: map['city'],
       state: map['state'],
-      postalCode: map['postalCode'],
-      countryCode: map['countryCode'],
+      postalCode: map['postal_Code'],
+      countryCode: map['country_Code'],
     );
   }
 

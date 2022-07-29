@@ -39,16 +39,16 @@ class Delivery {
       result.addAll({'type': type});
     }
     if(trackId != null){
-      result.addAll({'trackId': trackId});
+      result.addAll({'track_id': trackId});
     }
     if(trackUrl != null){
-      result.addAll({'trackUrl': trackUrl});
+      result.addAll({'track_url': trackUrl});
     }
     if(amount != null){
       result.addAll({'amount': amount});
     }
     if(deliveryForecast != null){
-      result.addAll({'deliveryForecast': deliveryForecast!});
+      result.addAll({'delivery_Forecast': deliveryForecast!});
     }
   
     return result;
@@ -60,10 +60,10 @@ class Delivery {
       address: map['address'] != null ? Address.fromMap(map['address']) : null,
       status: map['status'],
       type: map['type'],
-      trackId: map['trackId'],
-      trackUrl: map['trackUrl'],
+      trackId: map['track_id'],
+      trackUrl: map['track_url'],
       amount: map['amount']?.toInt(),
-      deliveryForecast: map['deliveryForecast'] != null ? DateTime.tryParse(map['deliveryForecast']) : null,
+      deliveryForecast: map['delivery_forecast'] != null ? DateTime.tryParse(map['delivery_forecast']) : null,
     );
   }
 
