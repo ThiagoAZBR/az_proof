@@ -64,7 +64,7 @@ class DashboardController {
     }
   }
 
-  List<String> _returnOrderId(int index, HomeController controller) {
+  List<String> _returnOrderId(int index, HomeController controller,) {
     int _counter = 0;
     List<String> _dataList = [];
     while (_counter < controller.maxRowsForPage) {
@@ -77,7 +77,7 @@ class DashboardController {
     return _dataList;
   }
 
-  List<String> _returnSellerId(int index, HomeController controller) {
+  List<String> _returnSellerId(int index, HomeController controller,) {
     int _counter = 0;
     List<String> _dataList = [];
     while (_counter < controller.maxRowsForPage) {
@@ -94,7 +94,7 @@ class DashboardController {
     return _dataList;
   }
 
-  List<String> _returnCreation(int index, HomeController controller) {
+  List<String> _returnCreation(int index, HomeController controller,) {
     int _counter = 0;
     final newFormat = DateFormat.yMd();
     List<String> _dataList = [];
@@ -106,7 +106,7 @@ class DashboardController {
     return _dataList;
   }
 
-  List<String> _returnCustomerName(int index, HomeController controller) {
+  List<String> _returnCustomerName(int index, HomeController controller,) {
     int _counter = 0;
     List<String> _dataList = [];
     while (_counter < controller.maxRowsForPage) {
@@ -119,7 +119,7 @@ class DashboardController {
     return _dataList;
   }
 
-  List<String> _returnCustomerDocs(int index, HomeController controller) {
+  List<String> _returnCustomerDocs(int index, HomeController controller,) {
     int _counter = 0;
     List<String> _dataList = [];
     while (_counter < controller.maxRowsForPage) {
@@ -132,7 +132,7 @@ class DashboardController {
     return _dataList;
   }
 
-  List<String> _returnOrderStatus(int index, HomeController controller) {
+  List<String> _returnOrderStatus(int index, HomeController controller,) {
     int _counter = 0;
     List<String> _dataList = [];
     while (_counter < controller.maxRowsForPage) {
@@ -145,7 +145,7 @@ class DashboardController {
     return _dataList;
   }
 
-  List<String> _returnPaymentStatus(int index, HomeController controller) {
+  List<String> _returnPaymentStatus(int index, HomeController controller,) {
     int _counter = 0;
     List<String> _dataList = [];
     while (_counter < controller.maxRowsForPage) {
@@ -159,7 +159,7 @@ class DashboardController {
     return _dataList;
   }
 
-  List<String> _returnPaymentType(int index, HomeController controller) {
+  List<String> _returnPaymentType(int index, HomeController controller,) {
     int _counter = 0;
     List<String> _dataList = [];
     while (_counter < controller.maxRowsForPage) {
@@ -173,7 +173,7 @@ class DashboardController {
     return _dataList;
   }
 
-  List<String> _returnTotal(int index, HomeController controller) {
+  List<String> _returnTotal(int index, HomeController controller,) {
     int _counter = 0;
     List<String> _dataList = [];
     while (_counter < controller.maxRowsForPage) {

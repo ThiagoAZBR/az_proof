@@ -16,7 +16,7 @@ class HomeView extends GetView<HomeController> {
   final DashboardController _dashboardController;
 
   HomeView(this._dashboardController);
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -109,7 +109,7 @@ class HomeView extends GetView<HomeController> {
                                 width: double.maxFinite,
                                 child: Obx(
                                   () => controller.state == HomeStates.loading()
-                                      ? HomeShimmer()
+                                      ? HomeLoading()
                                       : DashboardBody(
                                           controller: controller,
                                           dashboardController:
