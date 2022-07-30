@@ -1,3 +1,4 @@
+import 'package:az_proof/app/modules/home/controllers/home_controller.dart';
 import 'package:az_proof/app/modules/home/views/widgets/requests_table/table_column.dart';
 import 'package:az_proof/app/shared/app_colors.dart';
 import 'package:az_proof/app/shared/app_text_styles.dart';
@@ -6,7 +7,12 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
 class RequestsTable extends StatelessWidget {
-  const RequestsTable({Key? key}) : super(key: key);
+  final HomeController _controller;
+  const RequestsTable({
+    Key? key,
+    required HomeController controller,
+  })  : _controller = controller,
+        super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +61,6 @@ class RequestsTable extends StatelessWidget {
                     ),
                 ],
               ),
-              
             ],
           ),
         )

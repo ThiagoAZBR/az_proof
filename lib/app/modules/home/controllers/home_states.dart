@@ -5,7 +5,7 @@ part 'home_states.freezed.dart';
 
 @freezed
 class HomeStates with _$HomeStates {
-  const factory HomeStates(DashboardModel data) = Data;
+  const factory HomeStates.success({required DashboardModel data}) = Data;
   const factory HomeStates.loading() = Loading;
   const factory HomeStates.error([String? message]) = ErrorDetails;
 }

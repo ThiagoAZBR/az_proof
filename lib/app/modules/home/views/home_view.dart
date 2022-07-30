@@ -103,12 +103,11 @@ class HomeView extends GetView<HomeController> {
                               child: Container(
                                 width: double.maxFinite,
                                 child: Obx(
-                                  () => Visibility(
-                                    visible: controller.state ==
-                                        HomeStates.loading(),
-                                    replacement: DashboardBody(),
-                                    child: HomeShimmer(),
-                                  ),
+                                  () => controller.state == HomeStates.loading()
+                                      ? HomeShimmer()
+                                      : DashboardBody(
+                                          controller: controller,
+                                        ),
                                 ),
                               ),
                             ),

@@ -1,3 +1,4 @@
+import 'package:az_proof/app/modules/home/controllers/home_controller.dart';
 import 'package:az_proof/app/modules/home/views/widgets/requests_table/footer_dropdown.dart';
 import 'package:az_proof/app/shared/app_colors.dart';
 import 'package:az_proof/app/shared/app_text_styles.dart';
@@ -7,7 +8,12 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
 class TableFooter extends StatelessWidget {
-  const TableFooter({Key? key}) : super(key: key);
+  final HomeController _controller;
+  const TableFooter({
+    Key? key,
+    required HomeController controller,
+  })  : _controller = controller,
+        super(key: key);
 
   @override
   Widget build(BuildContext context) {

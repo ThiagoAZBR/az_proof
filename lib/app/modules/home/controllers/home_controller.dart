@@ -1,3 +1,4 @@
+import 'package:az_proof/app/data/models/dashboard_model.dart';
 import 'package:az_proof/app/data/models/user_model.dart';
 import 'package:az_proof/app/data/preferences/user_preferences.dart';
 import 'package:az_proof/app/domain/usecases/get_dashboard_info.dart';
@@ -9,6 +10,13 @@ class HomeController extends GetxController {
   final user = UserPreferences().obs;
   final userName = ''.obs;
   late final HomePageArguments arguments;
+  Rx<DashboardModel> _dashboardModel = DashboardModel().obs;
+
+  DashboardModel get dashboardModel => _dashboardModel.value;
+
+  set dashboardModel(DashboardModel newDashboardModel) {
+    _dashboardModel.value = newDashboardModel;
+  }
 
   final Rx<HomeStates> _state = HomeStates.loading().obs;
 
@@ -64,7 +72,8 @@ class HomeController extends GetxController {
         state = HomeStates.error();
       },
       (dashboardInfo) {
-        state = HomeStates(dashboardInfo);
+        state = HomeStates.success(data: dashboardInfo);
+        dashboardModel = dashboardInfo;
       },
     );
   }

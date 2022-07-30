@@ -1,3 +1,4 @@
+import 'package:az_proof/app/modules/home/controllers/home_controller.dart';
 import 'package:az_proof/app/modules/home/views/widgets/activity_summary.dart';
 import 'package:az_proof/app/modules/home/views/widgets/requests_table/requests_table.dart';
 import 'package:az_proof/app/modules/home/views/widgets/requests_table/table_footer.dart';
@@ -6,7 +7,12 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
 class DashboardBody extends StatelessWidget {
-  const DashboardBody({Key? key}) : super(key: key);
+  final HomeController _controller;
+  const DashboardBody({
+    Key? key,
+    required HomeController controller,
+  })  : _controller = controller,
+        super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,10 +21,16 @@ class DashboardBody extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          ActivitySummary(),
+          ActivitySummary(
+            controller: _controller,
+          ),
           const SizedBox(height: 32),
-          RequestsTable(),
-          TableFooter(),
+          RequestsTable(
+            controller: _controller,
+          ),
+          TableFooter(
+            controller: _controller,
+          ),
         ],
       ),
     );

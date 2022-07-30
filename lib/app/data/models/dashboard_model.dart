@@ -72,9 +72,9 @@ class DashboardModel {
   factory DashboardModel.fromMap(Map<String, dynamic> map) {
     return DashboardModel(
       ordersTotal: map['orders_total']?.toDouble(),
-      ordersCount: map['orders_tount']?.toInt(),
+      ordersCount: map['orders_count']?.toInt(),
       salesTotal: map['sales_total']?.toDouble(),
-      salesCount: map['sales_tount']?.toInt(),
+      salesCount: map['sales_count']?.toInt(),
       averageTicket: map['average_ticket']?.toDouble(),
       orders: map['orders'] != null
           ? List<Order>.from(map['orders']?.map((x) => Order.fromMap(x)))

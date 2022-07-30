@@ -5,12 +5,12 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
 class CardDetails extends StatelessWidget {
-  final IconData _icon;
+  final String _icon;
   final String _title;
   final String _body;
   const CardDetails({
     Key? key,
-    required IconData icon,
+    required String icon,
     required String title,
     required String body,
   })  : _icon = icon,
@@ -33,23 +33,28 @@ class CardDetails extends StatelessWidget {
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              Icon(_icon),
-              const SizedBox(height: 24),
-              Text(
-                _title,
-                style: AppTextStyles.nunitoBig(
-                  color: AppColors.darkGrey,
-                ),
-              ),
-              const SizedBox(height: 8),
-              Text(
-                _body,
-                style: AppTextStyles.nunitoBig(
-                  fontWeight: FontWeight.bold,
-                  color: AppColors.darkGrey,
-                ),
-              ),
+              Image.asset(_icon),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Text(
+                    _title,
+                    style: AppTextStyles.nunitoBig(
+                      color: AppColors.darkGrey,
+                    ),
+                  ),
+                  Text(
+                    _body,
+                    style: AppTextStyles.nunitoBig(
+                      fontWeight: FontWeight.bold,
+                      color: AppColors.darkGrey,
+                    ),
+                  ),
+                ],
+              )
             ],
           ),
         ),

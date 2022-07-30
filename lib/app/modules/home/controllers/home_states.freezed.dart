@@ -17,44 +17,44 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$HomeStates {
   @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(DashboardModel data) $default, {
+  TResult when<TResult extends Object?>({
+    required TResult Function(DashboardModel data) success,
     required TResult Function() loading,
     required TResult Function(String? message) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(DashboardModel data)? $default, {
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(DashboardModel data)? success,
     TResult Function()? loading,
     TResult Function(String? message)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(DashboardModel data)? $default, {
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(DashboardModel data)? success,
     TResult Function()? loading,
     TResult Function(String? message)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(Data value) $default, {
+  TResult map<TResult extends Object?>({
+    required TResult Function(Data value) success,
     required TResult Function(Loading value) loading,
     required TResult Function(ErrorDetails value) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(Data value)? $default, {
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Data value)? success,
     TResult Function(Loading value)? loading,
     TResult Function(ErrorDetails value)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(Data value)? $default, {
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Data value)? success,
     TResult Function(Loading value)? loading,
     TResult Function(ErrorDetails value)? error,
     required TResult orElse(),
@@ -99,7 +99,7 @@ class __$$DataCopyWithImpl<$Res> extends _$HomeStatesCopyWithImpl<$Res>
     Object? data = freezed,
   }) {
     return _then(_$Data(
-      data == freezed
+      data: data == freezed
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as DashboardModel,
@@ -110,14 +110,14 @@ class __$$DataCopyWithImpl<$Res> extends _$HomeStatesCopyWithImpl<$Res>
 /// @nodoc
 
 class _$Data implements Data {
-  const _$Data(this.data);
+  const _$Data({required this.data});
 
   @override
   final DashboardModel data;
 
   @override
   String toString() {
-    return 'HomeStates(data: $data)';
+    return 'HomeStates.success(data: $data)';
   }
 
   @override
@@ -139,75 +139,75 @@ class _$Data implements Data {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(DashboardModel data) $default, {
+  TResult when<TResult extends Object?>({
+    required TResult Function(DashboardModel data) success,
     required TResult Function() loading,
     required TResult Function(String? message) error,
   }) {
-    return $default(data);
+    return success(data);
   }
 
   @override
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(DashboardModel data)? $default, {
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(DashboardModel data)? success,
     TResult Function()? loading,
     TResult Function(String? message)? error,
   }) {
-    return $default?.call(data);
+    return success?.call(data);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(DashboardModel data)? $default, {
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(DashboardModel data)? success,
     TResult Function()? loading,
     TResult Function(String? message)? error,
     required TResult orElse(),
   }) {
-    if ($default != null) {
-      return $default(data);
+    if (success != null) {
+      return success(data);
     }
     return orElse();
   }
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(Data value) $default, {
+  TResult map<TResult extends Object?>({
+    required TResult Function(Data value) success,
     required TResult Function(Loading value) loading,
     required TResult Function(ErrorDetails value) error,
   }) {
-    return $default(this);
+    return success(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(Data value)? $default, {
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Data value)? success,
     TResult Function(Loading value)? loading,
     TResult Function(ErrorDetails value)? error,
   }) {
-    return $default?.call(this);
+    return success?.call(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(Data value)? $default, {
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Data value)? success,
     TResult Function(Loading value)? loading,
     TResult Function(ErrorDetails value)? error,
     required TResult orElse(),
   }) {
-    if ($default != null) {
-      return $default(this);
+    if (success != null) {
+      return success(this);
     }
     return orElse();
   }
 }
 
 abstract class Data implements HomeStates {
-  const factory Data(final DashboardModel data) = _$Data;
+  const factory Data({required final DashboardModel data}) = _$Data;
 
   DashboardModel get data;
   @JsonKey(ignore: true)
@@ -251,8 +251,8 @@ class _$Loading implements Loading {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(DashboardModel data) $default, {
+  TResult when<TResult extends Object?>({
+    required TResult Function(DashboardModel data) success,
     required TResult Function() loading,
     required TResult Function(String? message) error,
   }) {
@@ -261,8 +261,8 @@ class _$Loading implements Loading {
 
   @override
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(DashboardModel data)? $default, {
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(DashboardModel data)? success,
     TResult Function()? loading,
     TResult Function(String? message)? error,
   }) {
@@ -271,8 +271,8 @@ class _$Loading implements Loading {
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(DashboardModel data)? $default, {
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(DashboardModel data)? success,
     TResult Function()? loading,
     TResult Function(String? message)? error,
     required TResult orElse(),
@@ -285,8 +285,8 @@ class _$Loading implements Loading {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(Data value) $default, {
+  TResult map<TResult extends Object?>({
+    required TResult Function(Data value) success,
     required TResult Function(Loading value) loading,
     required TResult Function(ErrorDetails value) error,
   }) {
@@ -295,8 +295,8 @@ class _$Loading implements Loading {
 
   @override
   @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(Data value)? $default, {
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Data value)? success,
     TResult Function(Loading value)? loading,
     TResult Function(ErrorDetails value)? error,
   }) {
@@ -305,8 +305,8 @@ class _$Loading implements Loading {
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(Data value)? $default, {
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Data value)? success,
     TResult Function(Loading value)? loading,
     TResult Function(ErrorDetails value)? error,
     required TResult orElse(),
@@ -385,8 +385,8 @@ class _$ErrorDetails implements ErrorDetails {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(DashboardModel data) $default, {
+  TResult when<TResult extends Object?>({
+    required TResult Function(DashboardModel data) success,
     required TResult Function() loading,
     required TResult Function(String? message) error,
   }) {
@@ -395,8 +395,8 @@ class _$ErrorDetails implements ErrorDetails {
 
   @override
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(DashboardModel data)? $default, {
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(DashboardModel data)? success,
     TResult Function()? loading,
     TResult Function(String? message)? error,
   }) {
@@ -405,8 +405,8 @@ class _$ErrorDetails implements ErrorDetails {
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(DashboardModel data)? $default, {
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(DashboardModel data)? success,
     TResult Function()? loading,
     TResult Function(String? message)? error,
     required TResult orElse(),
@@ -419,8 +419,8 @@ class _$ErrorDetails implements ErrorDetails {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(Data value) $default, {
+  TResult map<TResult extends Object?>({
+    required TResult Function(Data value) success,
     required TResult Function(Loading value) loading,
     required TResult Function(ErrorDetails value) error,
   }) {
@@ -429,8 +429,8 @@ class _$ErrorDetails implements ErrorDetails {
 
   @override
   @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(Data value)? $default, {
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Data value)? success,
     TResult Function(Loading value)? loading,
     TResult Function(ErrorDetails value)? error,
   }) {
@@ -439,8 +439,8 @@ class _$ErrorDetails implements ErrorDetails {
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(Data value)? $default, {
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Data value)? success,
     TResult Function(Loading value)? loading,
     TResult Function(ErrorDetails value)? error,
     required TResult orElse(),
