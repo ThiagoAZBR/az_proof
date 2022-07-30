@@ -166,7 +166,7 @@ class DashboardController {
       for (OrderProduct _product
           in controller.dashboardModel.orders![index].products!) {
         _dataList
-            .add(controller.dashboardModel.orders![index].payment!.method!);
+            .add(returnPaymentType(controller.dashboardModel.orders![index].payment!.method!));
       }
       _counter++;
     }
@@ -198,5 +198,16 @@ class DashboardController {
       return 'Aprovado';
     }
     return 'Cancelado';
+  }
+
+  String returnPaymentType(String status) {
+    if (status == StringConstants.CREDIT_STATUS) {
+      return 'Crédito';
+    } else if (status == StringConstants.PIX_STATUS || status == StringConstants.PIX_STATUS.toUpperCase()) {
+      return 'Pix';
+    } else if (status == StringConstants.BOLETO_STATUS) {
+      return 'Boleto';
+    }
+    return 'Crédito';
   }
 }
