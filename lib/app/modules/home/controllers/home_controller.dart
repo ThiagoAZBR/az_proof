@@ -10,21 +10,21 @@ class HomeController extends GetxController {
   final user = UserPreferences().obs;
   final userName = ''.obs;
   late final HomePageArguments arguments;
+
+  // RxVariables
   Rx<DashboardModel> _dashboardModel = DashboardModel().obs;
-
   DashboardModel get dashboardModel => _dashboardModel.value;
-
-  set dashboardModel(DashboardModel newDashboardModel) {
-    _dashboardModel.value = newDashboardModel;
-  }
+  set dashboardModel(DashboardModel newDashboardModel) =>
+      _dashboardModel.value = newDashboardModel;
 
   final Rx<HomeStates> _state = HomeStates.loading().obs;
-
   HomeStates get state => _state.value;
+  set state(HomeStates newState) => _state.value = newState;
 
-  set state(HomeStates newState) {
-    _state.value = newState;
-  }
+  Rx<int> _limitOfRowsForPage = 7.obs;
+  int get maxRowsForPage => _limitOfRowsForPage.value;
+  set maxRowsForPage(int limitOfRowsForPage) =>
+      _limitOfRowsForPage.value = limitOfRowsForPage;
 
   // UseCases
   final GetDashboardInfoUseCase _getDashboardInfoUseCase;

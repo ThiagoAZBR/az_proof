@@ -77,7 +77,7 @@ class Order {
       result.addAll({'invoices': invoices!.map((x) => x?.toMap()).toList()});
     }
     if(orderSellerId != null){
-      result.addAll({'orderSellerId': orderSellerId});
+      result.addAll({'order_seller_id': orderSellerId});
     }
     if(status != null){
       result.addAll({'status': status});
@@ -117,7 +117,7 @@ class Order {
       id: map['id'],
       coupon: map['coupon'] != null ? Coupon.fromMap(map['coupon']) : null,
       invoices: map['invoices'] != null ? List<Invoice>.from(map['invoices']?.map((x) => Invoice.fromMap(x))) : null,
-      orderSellerId: map['orderSellerId'],
+      orderSellerId: map['order_seller_id'],
       status: map['status'],
       partner: map['partner'] != null ? Partner.fromMap(map['partner']) : null,
       createdAt: map['createdAt'] != null ? DateTime.tryParse(map['createdAt']) : null,

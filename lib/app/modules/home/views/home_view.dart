@@ -1,3 +1,4 @@
+import 'package:az_proof/app/modules/home/controllers/dashboard_controller.dart';
 import 'package:az_proof/app/modules/home/controllers/home_states.dart';
 import 'package:az_proof/app/modules/home/views/home_shimmer.dart';
 import 'package:az_proof/app/modules/home/views/widgets/dashboard_body.dart';
@@ -12,6 +13,10 @@ import '../../../routes/app_pages.dart';
 import '../controllers/home_controller.dart';
 
 class HomeView extends GetView<HomeController> {
+  final DashboardController _dashboardController;
+
+  HomeView(this._dashboardController);
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -107,6 +112,8 @@ class HomeView extends GetView<HomeController> {
                                       ? HomeShimmer()
                                       : DashboardBody(
                                           controller: controller,
+                                          dashboardController:
+                                              _dashboardController,
                                         ),
                                 ),
                               ),

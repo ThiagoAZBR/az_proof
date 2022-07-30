@@ -57,7 +57,7 @@ class OrderProduct {
       result.addAll({'id': id});
     }
     if(sellerId != null){
-      result.addAll({'sellerId': sellerId});
+      result.addAll({'seller_id': sellerId});
     }
     if(name != null){
       result.addAll({'name': name});
@@ -81,7 +81,7 @@ class OrderProduct {
       result.addAll({'discount': discount});
     }
     if(originalPrice != null){
-      result.addAll({'originalPrice': originalPrice});
+      result.addAll({'original_price': originalPrice});
     }
     if(rating != null){
       result.addAll({'rating': rating});
@@ -108,7 +108,7 @@ class OrderProduct {
       result.addAll({'replacementProduct': replacementProduct});
     }
     if(productSellerId != null){
-      result.addAll({'productSellerId': productSellerId});
+      result.addAll({'product_seller_id': productSellerId});
     }
     if(attributes != null){
       result.addAll({'attributes': attributes!.map((x) => x?.toMap()).toList()});
@@ -120,7 +120,7 @@ class OrderProduct {
   factory OrderProduct.fromMap(Map<String, dynamic> map) {
     return OrderProduct(
       id: map['id'],
-      sellerId: map['sellerId'],
+      sellerId: map['seller_id'],
       name: map['name'],
       quantity: map['quantity']?.toInt(),
       sku: map['sku'],
@@ -128,7 +128,7 @@ class OrderProduct {
       status: map['status'],
       price: map['price']?.toDouble(),
       discount: map['discount']?.toInt(),
-      originalPrice: map['originalPrice']?.toDouble(),
+      originalPrice: map['original_price']?.toDouble(),
       rating: map['rating'],
       replacementCoupon: map['replacementCoupon'],
       coupon: map['coupon'] != null ? Coupon.fromMap(map['coupon']) : null,
@@ -137,7 +137,7 @@ class OrderProduct {
       history: map['history'] != null ? List<History>.from(map['history']?.map((x) => History.fromMap(x))) : null,
       active: map['active'],
       replacementProduct: map['replacementProduct'],
-      productSellerId: map['productSellerId'],
+      productSellerId: map['product_seller_id'],
       attributes: map['attributes'] != null ? List<PurpleAttribute>.from(map['attributes']?.map((x) => PurpleAttribute.fromMap(x))) : null,
     );
   }

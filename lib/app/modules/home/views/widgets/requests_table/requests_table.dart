@@ -1,3 +1,6 @@
+import 'package:az_proof/app/data/models/dashboard_model.dart';
+import 'package:az_proof/app/data/models/order_product_model.dart';
+import 'package:az_proof/app/modules/home/controllers/dashboard_controller.dart';
 import 'package:az_proof/app/modules/home/controllers/home_controller.dart';
 import 'package:az_proof/app/modules/home/views/widgets/requests_table/table_column.dart';
 import 'package:az_proof/app/shared/app_colors.dart';
@@ -8,10 +11,13 @@ import 'package:flutter/src/widgets/framework.dart';
 
 class RequestsTable extends StatelessWidget {
   final HomeController _controller;
+  final DashboardController _dashboardController;
   const RequestsTable({
     Key? key,
     required HomeController controller,
+    required DashboardController dashboardController,
   })  : _controller = controller,
+        _dashboardController = dashboardController,
         super(key: key);
 
   @override
@@ -41,22 +47,22 @@ class RequestsTable extends StatelessWidget {
                 ),
               ),
               Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  for (var i = 0; i < 7; i++)
+                  for (var i = 0; i < 9; i++)
                     Expanded(
+                      flex: returnFlex(i),
                       child: TableColumn(
-                        title: 'ID da Loja',
-                        dataList: [
-                          '11111',
-                          '22222',
-                          '33333',
-                        ],
+                        controller: _controller,
+                        title: _dashboardController.returnTitle(i),
+                        dataList: _dashboardController.returnDatashboardInfo(
+                            i, _controller),
                         titleBackground:
                             i % 2 == 0 ? AppColors.lightRed : AppColors.darkRed,
                         dataListBackground:
                             i % 2 == 0 ? AppColors.white : AppColors.lightGrey,
                         index: i,
-                        tableLength: 7,
+                        tableLength: 9,
                       ),
                     ),
                 ],
@@ -67,4 +73,11 @@ class RequestsTable extends StatelessWidget {
       ],
     );
   }
+}
+
+int returnFlex(int index) {
+  if (index == 0 || index == 1 || index == 3 || index == 4) {
+    return 2;
+  }
+  return 1;
 }

@@ -1,3 +1,4 @@
+import 'package:az_proof/app/modules/home/controllers/dashboard_controller.dart';
 import 'package:get/get.dart';
 
 import '../modules/home/bindings/home_binding.dart';
@@ -15,7 +16,9 @@ class AppPages {
   static final routes = [
     GetPage(
       name: _Paths.HOME,
-      page: () => HomeView(),
+      page: () => HomeView(
+        Get.find<DashboardController>(),
+      ),
       binding: HomeBinding(),
     ),
     GetPage(
