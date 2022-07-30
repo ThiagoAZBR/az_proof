@@ -101,6 +101,7 @@ class _TableFooterState extends State<TableFooter> {
                   '1 de 10 páginas',
                   style: AppTextStyles.nunitoMedium(color: AppColors.grey),
                 ),
+                FooterDropdown(),
               ],
             ),
           )
